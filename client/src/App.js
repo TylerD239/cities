@@ -5,8 +5,6 @@ import {Form} from './components/form';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Loader} from './components/Loader';
 
-
-
 const App = () => {
 
 
@@ -25,25 +23,20 @@ const App = () => {
   const getWeather = async (city) => {
     setLoading(true)
 
-    if (!city) return
-
     const weatherApi = await fetch('/api/getWeather', {
       method: "GET",
       headers: {
       "city": encodeURIComponent(city)}
     })
 
-    const data = await weatherApi.json()
+    const {weather,geo,error} = await weatherApi.json()
 
-    if (data.error) {
+    if (error) {
        setState({
         error: 'Такой город не найден'
        })
        return setLoading(false)
     }
-
-    const weather = data.weather
-    const geo = data.geo
 
     setState({
       place: geo.result.address[0].features[0].properties.description,
