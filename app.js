@@ -36,11 +36,8 @@ console.log('Search...')
     		}
         	 })
 
-	  const weather = await weather_api.json()
-
-	  res.send({weather, geo})
-		}
- 	}
+	const weather = await weather_api.json()
+	
 	const base = async () => {
 		await fetch("https://cities-b0bdb.firebaseio.com/data.json", {
 			method: "POST",
@@ -49,6 +46,11 @@ console.log('Search...')
 	}
 
 	base()
+		
+	res.send({weather, geo})
+		}
+ 	}
+
 	getWeather()
 
 
