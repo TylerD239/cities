@@ -15,7 +15,7 @@ app.get('*', (req, res) => {
 })
 
 app.use('/api/getWeather', function(req, res, next) {
-
+console.log('trying...')
  const getWeather = async () => {
 
 	const city = req.headers.city
