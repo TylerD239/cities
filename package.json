@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",
+    "start": "node app.js",
     "client:install": "npm install --prefix client",
     "client:build": "npm run build --prefix client"
   },
