@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/getWeather', function(req, res, next) {
-console.log('trying...')
+console.log('Search...')
  const getWeather = async () => {
 
 	const city = req.headers.city
@@ -41,7 +41,14 @@ console.log('trying...')
 	  res.send({weather, geo})
 		}
  	}
+	const base = async () => {
+		await fetch("https://cities-b0bdb.firebaseio.com/data.json", {
+			method: "POST",
+			body: JSON.stringify({"city": decodeURI(city)})
+		})
+	}
 
+	base()
 	getWeather()
 
 
