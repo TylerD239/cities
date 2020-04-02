@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 export const Form = ({getW}) => {
 	const [state,setState] = useState('')
-	const handler = (e) => {e.preventDefault(); setState(e.target.value)}
+	const handler = (e) => {e.preventDefault(); if (e.target.value) {setState(e.target.value)}}
 	const submit = (e) => {
 		e.preventDefault()
 		getW(state)
