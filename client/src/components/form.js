@@ -12,7 +12,7 @@ export const Form = ({getW}) => {
 			<div className="input-group mb-3">
 	  			<input onChange ={handler}  type="text" name="city" className="form-control" placeholder="Введите город" />
 	 			<div className="input-group-append">
-	   				<button className="btn btn-outline-secondary" type="submit" id="button-addon2">Получить погоду</button>
+	   				<button className="btn btn-outline-secondary" type="submit" id="button-addon2">Узнать погоду</button>
 		 		</div>
 			</div>
 		</form>
